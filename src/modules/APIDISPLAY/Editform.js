@@ -1,39 +1,56 @@
-import React from 'react'
-// import { removeArticle, handleEdit } from '../../listDemo/listDemo.actions'
-// import { addArticle } from '../../listDemo/listDemo.actions'
+import React from "react";
+import {Form,Table} from 'react-bootstrap'
+const EditForm = ({
+  changeUserName,
+  changeUserUsername,
+  changeUserEmail,
+  user_name,
+  user_username,
+  user_email,
+  save,
+ }) => (
+  <div>
+    <Table>
+     
+      <tr>
+        <td>
+          <label>Name </label>
+        </td>
+        <td>
+          <input
+            type="text"
+            onChange={changeUserName}
+            value={user_name}
+                    />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Username</label>
+        </td>
+        <td>
+          <input
+            type="text"
+            onChange={changeUserUsername}
+            value={user_username}
+                     />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Email </label>
+        </td>
+        <td>
+          <input type="text" onChange={changeUserEmail} value={user_email}  />
+        </td>
+      </tr>
+      <tr>
+        <td>
+                 <input type="button"  onClick={save} value="Save"  />
+    </td>
+      </tr>
+    </Table>
+  </div>
+);
 
-const EditForm = ({ articles, removeArticle, handleEdit }) => {
-  debugger
-  return (
-    articles &&
-    articles.length && (
-      <ul>
-        <li>Total Articles:{articles.length}</li>
-        {articles.map(article => {
-          return (
-            <li key={article.id}>
-              {article.title}
-              <button
-                onClick={() => {
-                  removeArticle(article.id)
-                }}
-              >
-                Remove article
-              </button>
-              &nbsp;
-              <button
-                onClick={() => {
-                  handleEdit(article.id)
-                }}
-              >
-                Edit
-              </button>
-            </li>
-          )
-        })}
-      </ul>
-    )
-  )
-}
-
-export default EditForm
+export default EditForm;

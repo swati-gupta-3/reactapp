@@ -1,10 +1,11 @@
 import React from 'react'
-
+import {Button} from 'react-bootstrap';
 const ApiDisplay = data=> {
   console.log(data, 'rendder')
   // console.log(editApi,"methodddd")
   debugger
   return (
+    <div>
     <table border="1">
       <tr>
         <th>id</th>
@@ -13,7 +14,7 @@ const ApiDisplay = data=> {
         <th>Email</th>
         <th>city</th> 
         </tr>
-      {data.data.map(res => (
+      {data && data.data.map(res => (
         <tr>
           <td>{res.id}</td>
           <td>{res.name}</td>
@@ -21,12 +22,13 @@ const ApiDisplay = data=> {
           <td>{res.email}</td>
          
           <td>{res.address.city}</td>
-           <button onClick={() => data.editApi(res.id)}>Edit</button> 
+           <Button onClick={() => data.editApi(res.id)}>Edit</Button> 
           
  
                 </tr>
       ))}
     </table>
+    </div>
   )
 }
 
