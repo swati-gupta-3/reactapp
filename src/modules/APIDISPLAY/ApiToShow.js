@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import ApiDisplay from '../APIDISPLAY/apiDisplay'
 import {apiDataItem,userEdit} from '../displayDemo/displayDemo.actions'
-import EditForm from './Editform'
+// import EditForm from './Editform'
 const mapDispatchToProps = {
   apiDataItem,
   userEdit
