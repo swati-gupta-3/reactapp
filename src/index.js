@@ -11,13 +11,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import DisplayDemo from './modules/displayDemo/components/displayDemo'
 render(
     <Provider store={store}>
-        <h3>Display Redux form</h3>
+        <h3 align="center">Display Redux form</h3>
         {/* <DisplayDemo /> */}
         {/* <Formcomp/>, */}
         {/* <Example/> */}
     {/* <EditForm/> */}
 {/* <ContactPage/> */}
-<EditSubmitButton/>
+<EditSubmitButton />
     </Provider>,
     document.getElementById("root")
 );
