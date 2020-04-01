@@ -1,17 +1,31 @@
-import React from 'react'
-import EditForm from '../APIDISPLAY/Editform'
-// import showResults from './Alert'
-class EditSubmitButton extends React.Component {
+import React, { Component } from "react";
+import axios from "axios";
+import { connect } from "react-redux";
+// import * as selectors from '../APIDISPLAY/editFormSelector'
+import EditForm from "../APIDISPLAY/Editform";
+
+// const mapStateToProps = state => ({
   
- submit = values => {
-    console.log(values)
-    window.alert(`Submitted Data:\n\n${JSON.stringify(values,null,2)}`);
+// formData: selectors.getForm(state)
+
+// })
+
+class EditSubmitButton extends Component {
+  
+  
+  submit = values => {
     
-  }
-  render() {
-    return <EditForm onSubmit={this.submit}
+    // window.alert(`Submitted Data:\n\n${JSON.stringify(values, null, 2)}`);
   
-    />
+      debugger
+    axios.post('https://d20b3d8f.ngrok.io/api/Student',values).then(res =>{
+      
+      })
+
+  };
+  render() {
+    return <EditForm onSubmit={this.submit} />;
   }
 }
-export default EditSubmitButton;
+export default EditSubmitButton
+

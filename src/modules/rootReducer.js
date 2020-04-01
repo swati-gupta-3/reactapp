@@ -1,3 +1,3 @@
-import rootReducer from './displayDemo/displayDemo.reducer';
+import rootReducer from './apiDemo/apiDemoReducers';
 
 export default rootReducer;
