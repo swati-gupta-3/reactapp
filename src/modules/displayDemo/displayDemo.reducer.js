@@ -1,4 +1,4 @@
-/*import * as actionTypes from './displayDemo.actionTypes'
+import * as actionTypes from './displayDemo.actionTypes'
 
 
 const initialState = {
@@ -25,15 +25,19 @@ const reducer = (state = initialState, action)=> {
             console.log(each.user_name)
             console.log(each.user_username)
             console.log(each.user_email)
-                  
+            
+          
           }
           return each;
         });
         return {...state, data: userdata};
+
+
+     
       default:
         return state;
     }
   
   } 
+  
 export default reducer
-*/

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Button} from 'react-bootstrap';
-const MyApiDisplay = data=> {
+const MyApiDisplay =  data=> {
 
 
   debugger
@@ -9,6 +9,7 @@ const MyApiDisplay = data=> {
     <div>
     <table border="1">
       <tr>
+
         <th>id</th>
         <th>Name</th>
         <th>Address</th>
@@ -24,7 +25,7 @@ const MyApiDisplay = data=> {
           <td>{res.phoneNo}</td>
 
           <td>{res.country}</td>
-           <Button variant="secondary"onClick={() => data.editApi(res.id)}>Edit</Button> 
+           <Button variant="secondary"onClick={() => data.editApi(res.studentId)}>Edit</Button> 
           
  
                 </tr>

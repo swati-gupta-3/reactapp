@@ -1,3 +1,11 @@
-import rootReducer from './apiDemo/apiDemoReducers';
+import apiReducer from './apiDemo/apiDemoReducers';
 
-export default rootReducer;
+
+
+import {combineReducers } from "redux"
+import {reducer as formReducer} from 'redux-form'
+export default combineReducers({
+    form:formReducer,
+    apigetData:apiReducer
+ })
+ 

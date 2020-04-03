@@ -1,3 +1,3 @@
 export const getApiItem = state =>{
-    
-    return state.data }
+    debugger
+    return state.apigetData.data }

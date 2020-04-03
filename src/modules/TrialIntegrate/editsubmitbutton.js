@@ -18,9 +18,9 @@ class EditSubmitButton extends Component {
     // window.alert(`Submitted Data:\n\n${JSON.stringify(values, null, 2)}`);
   
       debugger
-    axios.post('https://d20b3d8f.ngrok.io/api/Student',values).then(res =>{
+    // axios.post('https://d20b3d8f.ngrok.io/api/Student',values).then(res =>{
       
-      })
+      // })
 
   };
   render() {

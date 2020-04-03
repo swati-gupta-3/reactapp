@@ -11,6 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import Example from './modules/bootstrapform/formModal'
 // import DisplayDemo from "./modules/displayDemo/components/displayDemo";
 import ApiDemo from './modules/apiDemo/components/ApiDemo'
+// import Try from './modules/tryeditform'
+
 // import DisplayDemo from './modules/displayDemo/components/displayDemo'
 render(
     <Provider store={store}>
@@ -23,6 +25,7 @@ render(
 {/* <EditSubmitButton /> */}
 {/* <PostForm/> */}
 <ApiDemo/>
+{/* <Try/> */}
     </Provider>,
     document.getElementById("root")
 );

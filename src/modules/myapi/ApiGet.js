@@ -1,40 +1,59 @@
-import { connect} from 'react-redux'
-import * as selectors from '../apiDemo/apiDemo.selectors'
-import React, {Component} from 'react'
+import { connect } from "react-redux";
+import * as selectors from "../apiDemo/apiDemo.selectors";
+import React, { Component } from "react";
 // import axios from 'axios'
-import MyApiDisplay from '../myapi/MyApiDisplay'
-import {apiDataItem,userEdit} from '../apiDemo/apiDemo.actions'
-import EditForm from '../APIDISPLAY/Editform'
+import MyApiDisplay from "../myapi/MyApiDisplay";
+import { apiDataItem, userEdit } from "../apiDemo/apiDemo.actions";
+import EditForm from "../APIDISPLAY/Editform";
 
 const mapDispatchToProps = {
-    apiDataItem,userEdit
-    
-  }
-  
-  const mapStateToProps = state => ({
-    data: selectors.getApiItem(state)
-  })
+  apiDataItem,
+  userEdit
+};
 
+const mapStateToProps = state => ({
+  data: selectors.getApiItem(state)
+});
+var obj = [
+  {
+    studentId: 1,
+    name: "swati",
+    address: "gwl",
+    phoneNo: 1111,
+    country: "India"
+  },
+  {
+    studentId: 2,
+    name: "Sonam",
+    address: "datia",
+    phoneNo: 2222,
+    country: "srilanka"
+  },
+  {
+    studentId: 3,
+    name: "Shivaji",
+    address: "indergarh",
+    phoneNo: 3333,
+    country: "india"
+  }
+];
 class ApiGet extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        showapi: true,
-        user_id:'',
-        name: '',
-        address: '',
-        phoneNo: '',
-        country:''
+      showapi: true,
+      student_id: "",
+      name: "",
+      address: "",
+      phoneNo: "",
+       country: ""
     };
   }
-//   const obj=[{studentId:1,name:"swati",address:"gwl",country:"India"}]
-
-  
 
   componentDidMount() {
     debugger
-    
-    
+    this.props.apiDataItem(obj);
+
     /*axios.get('https://c575efab.ngrok.io/api/Student').then(res => {
       console.log(res.data, "console")
       debugger
@@ -42,33 +61,33 @@ class ApiGet extends Component {
     })*/
   }
   debugger
-  editApi = id => {
+  editApi = studentId => {
+    
     this.setState({
-        // alert(checking)
+     
       showapi: false
     });
 
-    const apiUser = this.props.data.find(each => each.id === id);
-    
+    const apiUser = this.props.data.find(each => each.studentId === studentId);
+  
+
     alert("edit data");
 
     this.setState({
-      id: apiUser.id,
-      name:apiUser.name,
+      student_id: apiUser.studentId,
+      name: apiUser.name,
       address: apiUser.address,
       phoneNo: apiUser.phoneNo,
       country: apiUser.country,
-
-
     });
 
-    const user_id = apiUser.id;
+    const student_id = apiUser.studentId;
     const name = apiUser.name;
-    const address= apiUser.address;
+    const address = apiUser.address;
     const phoneNo = apiUser.phoneNo;
-    const country = apiUser.country
+    const country = apiUser.country;
     const userData = {
-      user_id,
+      student_id,
       name,
       address,
       phoneNo,
@@ -82,73 +101,45 @@ class ApiGet extends Component {
     this.setState({
       name: event.target.value
     });
-  }
+  };
 
   changeAddress = event => {
     this.setState({
       address: event.target.value
     });
-  }
+  };
 
   changePhoneNo = event => {
     this.setState({
       phoneNo: event.target.value
     });
-  }
-  changeCountry=event=>{
-      this.setState({
-          country:event.target.value
-      })
-  }
- 
+  };
+  changeCountry = event => {
+    this.setState({
+      country: event.target.value
+    });
+  };
+  
   render() {
-    debugger
-    console.log(this.props.data, "fdfdf")
-    return(
-        this.state.showapi === true ? (
-        <
-        MyApiDisplay data = {
-          this.props.data
-        }
-        editApi = {
-            this.editApi
-          }
-    />
-    ) : ( <
-        EditForm changeName = {
-          this.changeName
-        }
-        changeAddress = {
-          this.changeAddress
-        }
-        changePhoneNo = {
-          this.changePhoneNo
-        }
-        changeCountry = {
-            this.changeCountry
-          }
-        name = {
-          this.state.name
-        }
-        address = {
-          this.state.address
-        }
-        phoneNo = {
-          this.state.phoneNo
-        }
-        contry = {
-            this.state.country
-          }
-        submit = {
-          this.submit
-        }
-
-        />
-      )
-
+    debugger;
+    console.log(this.props.data, "fdfdf");
+    return ( this.state.showapi === true ? (
+      <MyApiDisplay data={this.props.data} editApi={this.editApi} />
+    ) : (
+      <EditForm
+        changeName={this.changeName}
+        changeAddress={this.changeAddress}
+        changePhoneNo={this.changePhoneNo}
+        changeCountry={this.changeCountry}
+        name={this.state.name}
+        address={this.state.address}
+        phoneNo={this.state.phoneNo}
+        contry={this.state.country}
+        
+      />
+    )
     );
   }
 }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(ApiGet)
+export default connect(mapStateToProps, mapDispatchToProps)(ApiGet);
