@@ -10,7 +10,7 @@ const validate = values => {
   if (!values.address) {
     errors.address = "Required";
   }
-  
+
   if (!values.phoneNo) {
     errors.phoneNo = "Required";
   }
@@ -27,85 +27,75 @@ const renderField = ({ input, label, meta: { touched, error } }) => (
       {touched && <span className="text-danger">{error}</span>}
     </div>
   </div>
-)
+);
 
 const EditForm = props => {
- const  { handleSubmit, reset} =props;
+  const { handleSubmit, reset } = props;
   return (
-  
     <Container>
       <Row>
         <Col></Col>
 
         <Col xs={3}>
-              
-      <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             <div>
               <table>
-                <FormGroup > 
-                                   <tr>
-                                  
-                    
+                <FormGroup>
+                  <tr>
                     <Field
                       component={renderField}
                       label="Name"
                       type="text"
                       name="name"
-                      
-                       value={props.name}
-                    
-                    
-                    />
-                  </tr>
-                  </FormGroup>
-                <FormGroup>
-                 
-                  <tr>
-                                       <Field
-                    component={renderField}
-                      
-                    label="Address"
-                      name="address"
-                      type="text"
-                      value={props}
 
-                
+                       value={props.name}
+                       onChange={props.changeName}
                     />
                   </tr>
-                 
                 </FormGroup>
                 <FormGroup>
-                  
                   <tr>
-
                     <Field
-                    component={renderField}
-                    label="PhoneNo"
-                    
+                      component={renderField}
+                      label="Address"
+                      name="address"
+                      type="text"
+                      
+                      value={props.address}
+                      onChange={props.changeAddress}
+
+                    />
+                  </tr>
+                </FormGroup>
+                <FormGroup>
+                  <tr>
+                    <Field
+                      component={renderField}
+                      label="PhoneNo"
                       name="phoneNo"
                       type="text"
                       value={props.phoneNo}
-              
+                      
+                      onChange={props.changePhoneNo}
+
                     />
                   </tr>
                 </FormGroup>
                 <FormGroup>
-                
                   <tr>
-                 
                     <Field
-                    component={renderField}
-                    label="Country"
-                      
+                      component={renderField}
+                      label="Country"
                       name="country"
                       type="text"
                       value={props.country}
                     
+                      onChange={props.changeCountry}
+
                     />
                   </tr>
-                                 </FormGroup>
+                </FormGroup>
 
-               
                 <div>
                   <tr>
                     <Button variant="primary" type="submit" size="lg">
@@ -124,22 +114,15 @@ const EditForm = props => {
               </table>
             </div>
           </Form>
-         
-          
-          
-
         </Col>
 
         <Col></Col>
       </Row>
     </Container>
-    
-  
   );
-
- };
+};
 
 export default reduxForm({
-  form: "form",validate
-
+  form: "form",
+  validate
 })(EditForm);

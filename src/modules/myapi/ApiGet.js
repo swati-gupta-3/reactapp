@@ -134,7 +134,7 @@ class ApiGet extends Component {
         name={this.state.name}
         address={this.state.address}
         phoneNo={this.state.phoneNo}
-        contry={this.state.country}
+        country={this.state.country}
         
       />
     )

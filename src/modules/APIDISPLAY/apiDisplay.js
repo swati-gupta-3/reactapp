@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 // import EditForm from './Editform'
+
 import {Button,ButtonToolbar} from 'react-bootstrap';
 const ApiDisplay = data=> {
   console.log(data, 'rendder')

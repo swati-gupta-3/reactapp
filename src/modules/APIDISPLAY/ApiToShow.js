@@ -54,7 +54,7 @@ class ApiToShow extends Component {
     const user_name = apiUser.name;
     const user_username = apiUser.username;
     const user_email = apiUser.email;
-    const user_address = apiUser.address.city;
+    const user_address = apiUser.address.city
     const userData = {
       user_id,
       user_name,
